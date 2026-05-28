@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>Zoho Desk - Apps</title>
+	<script src="https://js.zohostatic.com/support/developer_sdk/v1/js/ZohoDeskClientSDK.min.js"></script>
+	<link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+	
+	 <div class="wrap">
+    <div class="card">
+      <h1>SAP Customer Profile</h1>
+<p id="widgetTitle" class="widget-title">Zoho Desk Widget (Modular)</p>
+
+      <form id="searchForm" class="search-container"  role="search" aria-label="Site search" >
+  <input id="q" class="search-input" type="search" placeholder="Enter Customer Number…" autocomplete="off"/>
+  <button class="search-button" type="submit" aria-label="Search">
+    <!-- icon uses currentColor; no background -->
+    <svg class="search-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path d="M21 21l-4.35-4.35M10.5 18a7.5 7.5 0 1 1 0-15 7.5 7.5 0 0 1 0 15Z"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </button>
+</form>
+<div class="account-details">
+	<h4>Account Details</h4>
+      <form id="customerForm" autocomplete="off">
+        <div class="row">
+          <label for="accountName">Account Name</label>
+          <input id="accountName" name="accountName" type="text" autocomplete="off" readonly>
+        </div>
+          <div class="row">
+            <label for="streetHouseNumber">Street House Number</label>
+            <input id="streetHouseNumber" name="streetHouseNumber" autocomplete="off" type="text" readonly/>
+          </div>
+          <div class="grid">
+            <div class="row">
+              <label for="city">City</label>
+              <input id="city" name="city" type="text" autocomplete="off" readonly>
+            </div>
+
+            <div class="row">
+              <label for="postalCode">Postal Code</label>
+              <input id="postalCode" name="postalCode" type="text" inputmode="numeric" autocomplete="off" readonly/>
+            </div>
+
+            <div class="row">
+              <label for="region">Region</label>
+              <input id="region" name="region" type="text" autocomplete="off" readonly/>
+            </div>
+
+            <div class="row">
+              <label for="district">District</label>
+              <input id="district" name="district" type="text" autocomplete="off" readonly/>
+            </div>
+            
+          
+            <div class="row">
+              <label for="country">Country</label>
+              <input id="country" name="country" type="text" readonly/>
+            </div>
+          </div>
+          <br>
+          <hr>
+        <h4>Sales Org</h4>
+          <select name="salesOrg" id="salesOrg">
+        <option value="" disabled selected hidden>Select Sales Org...</option>
+          </select>
+          <br><br>
+          <input id="salesOrgName" name="salesOrgName" type="text" hidden readonly/>
+          <div class="grid">
+            <div class="row">
+                <label for="distributionChannel">Distribution Channel</label>
+                <input id="distributionChannel" name="distributionChannel" type="text" readonly/>
+              </div>
+              <div class="row">
+                <label for="Division">Division</label>
+              <input id="division" name="district" type="text" readonly/>
+              </div>
+              <div class="row">
+                <label for="salesGroup">Sales Group</label>
+                <input id="salesGroup" name="salesGroup" type="text" readonly/>
+              </div> 
+              <div class="row">
+                <label for="serviceOrg">Service Organization</label>
+                <input id="serviceOrg" name="serviceOrg" type="text" readonly/>
+              </div> 
+              <div class="row">
+                <label for="regionMarket">Region Market</label>
+                <input id="regionMarket" name="regionMarket" type="text" readonly/>
+              </div> 
+            </div>
+            <br>
+            <hr>
+              <h4>Contact Info</h4>
+              <select name="contacts" id="contacts">
+              <option value="" disabled selected hidden>Select Contact...</option>
+              </select> 
+              <br>  <br>
+              <input id="contactName" name="contactName" type="text" hidden readonly/>
+              <div class="grid">
+                <div class="row">
+                <label for="contactFunc">Contact Func</label>
+                <input id="contactFunc" name="contactFunc" type="text" readonly/>
+              </div> 
+               <div class="row">
+                <label for="contactRole">Contact Role</label>
+                <input id="contactRole" name="contactRole" type="text" readonly/>
+              </div> 
+               <div class="row">
+                <label for="contactEmail">Email</label>
+                <input id="contactEmail" name="contactEmail" type="text" readonly/>
+              </div> 
+              <div class="row">
+                <label for="contactPhone">Phone</label>
+                <input id="contactPhone" name="contactPhone" type="text" readonly/>
+              </div> 
+              <div class="row">
+                <label for="telNo">Tel No</label>
+                <input id="telNo" name="telNo" type="text" readonly/>
+              </div> 
+              </div>
+              <br>
+              <hr>
+              <div class="grid">
+                <div class="row">
+                  <label for="aseInfo">ASE Info</label>
+                  <input id="aseInfo" name="aseInfo" type="text" readonly/>
+                </div> 
+                <div class="row">
+                  <label for="asmInfo">ASM Info</label>
+                  <input id="asmInfo" name="asmInfo" type="text" readonly/>
+                </div>
+
+      </div>
+            <div class="actions">
+              <button id="saveBtn">Save Mock Data</button>
+              <button type="submit" class="primary" id="save">Save</button>
+            </div>
+            <br>
+            <br>
+      </form>
+    </div>
+  </div>
+  
+  <div class="overlay" id="loadingPopup" role="dialog" aria-modal="true" aria-labelledby="loadingTitle">
+    <div class="loader-card">
+      <div class="spinner" aria-hidden="true"></div>
+      <div id="loadingTitle" style="font-weight:700; margin-bottom:4px;">Loading…</div>
+ 
+    </div>
+  </div>
+  </div>
+
+  
+  <script type="module" src="./api_call.js"></script>
+  <script type="module" src="./js/index.js"></script>
+
+	<!-- <script type="module" src="./js/extension.js" charset="utf-8"></script> -->
+
+<script >
+
+  
+</script>
+
+</body>
+</html>
