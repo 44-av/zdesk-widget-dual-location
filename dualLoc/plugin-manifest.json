@@ -1,0 +1,48 @@
+{
+  "locale": ["en"],
+  "service": "DESK",
+  "storage": false,
+  "type": "personal",
+  "whiteListedDomains": [
+    "https://desk.zoho.com"
+  ],
+  "modules": {
+    "widgets": [
+      {
+        "location": "desk.ticket.detail.subtab",
+        "url": "/app/widget.html",
+        "name": "Desk Extension Subtab"
+      },
+      {
+        "location": "desk.ticket.form.rightpanel",
+        "url": "/app/widget.html",
+        "name": "Desk Extension Form Right Panel"
+      }
+    ]
+  },
+  "cspDomains": {
+    "connect-src": [
+      "https://desk.zoho.com"
+    ]
+  },
+  "zohoAuthorisation": {},
+  
+  "// Comment": "Add this root-level scope block below so native requests are authorized",
+  "scopes": [
+    "Desk.tickets.READ",
+    "Desk.tickets.UPDATE",
+    "Desk.tickets.WRITE"
+  ],
+
+  "connectors": [
+    {
+      "connectionLinkName": "z_widget",
+      "connectionName": "z_widget",
+      "serviceName": "zoho_desk",
+      "userAccess": false,
+      "scope": [
+        "Desk.tickets.ALL"
+      ]
+    }
+  ]
+}
